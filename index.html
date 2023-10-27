@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이동 이미지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .ar_view {
+            width: 1280px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .ar_view>img {
+            position: absolute;
+            width: 100%;
+            display: none;
+        }
+
+        .ar_view>img.show {
+            display: block;
+        }
+
+        #loading {
+            height: 20px;
+            width: 1280px;
+            margin: 0 auto;
+            background-color: #f1f1f1;
+        }
+
+        .bar {
+            width: 0;
+            height: 20px;
+            transition: 0.5s;
+            background-color: red;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var num = 0 // 이미 로드된 이미지 수
+            var i = $(".ar_view > img").length // 이미지 요소 총 갯수
+            // 마우스 이동을 감지하는 함수
+            $(".ar_view").mousemove(function (e) {
+                if (num < i * 0.9) return; // 실행하지 않음
+                // 이미지 갤러리를 가운데 정렬하기 위한 값.
+                // var diff = ($(window).width() - $(this).width() / 2)
+                var diff = 0
+                // 이미지를 하나씩 이동시킬때 얼마나 이동해야 하는지 계산
+                var per = $(this).width() / $(".ar_view > img").length
+                var r = (e.pageX - diff) / per;
+                r = Math.floor(r) // 소수점 이하를 버림하여 정수값으로 만듦.
+                // 마우스가 이미지 갤러리 왼쪽 끝을 벗어나지 않도록 r이 0보다 작을 경우 0으로 설정함.
+                if (r < 0) r = 0;
+                // 오른쪽 끝을 벗어나지 않도록 r이 이미지 갤러리의 이미지 개수를 초과하지 않도록 제한
+                if (r >= i) r = i - 1;
+                // var len = $(".ar_view > img").length;
+                // 정방향 문자열 템플릿 사용
+                var sel = `.ar_view > img:nth-child(${r + 1})`
+                $(".ar_view > img").removeClass("show")
+                $(sel).addClass("show");
+            })
+
+            $(".ar_view > img").on("load", function () {
+                num++;
+                var percent = "100%"
+                $(".bar").css("width", percent)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="loading">
+        <div class="bar"></div>
+    </div>
+    <div class="ar_view">
+        <img src="images/MV/001.png" alt="" class="show">
+        <img src="images/MV/002.png" alt="">
+        <img src="images/MV/003.png" alt="">
+        <img src="images/MV/004.png" alt="">
+        <img src="images/MV/005.png" alt="">
+        <img src="images/MV/006.png" alt="">
+        <img src="images/MV/007.png" alt="">
+        <img src="images/MV/008.png" alt="">
+        <img src="images/MV/009.png" alt="">
+        <img src="images/MV/010.png" alt="">
+        <img src="images/MV/011.png" alt="">
+        <img src="images/MV/012.png" alt="">
+        <img src="images/MV/013.png" alt="">
+        <img src="images/MV/014.png" alt="">
+        <img src="images/MV/015.png" alt="">
+        <img src="images/MV/016.png" alt="">
+        <img src="images/MV/017.png" alt="">
+        <img src="images/MV/018.png" alt="">
+        <img src="images/MV/019.png" alt="">
+        <img src="images/MV/020.png" alt="">
+        <img src="images/MV/021.png" alt="">
+        <img src="images/MV/022.png" alt="">
+        <img src="images/MV/023.png" alt="">
+        <img src="images/MV/024.png" alt="">
+        <img src="images/MV/025.png" alt="">
+        <img src="images/MV/026.png" alt="">
+        <img src="images/MV/027.png" alt="">
+        <img src="images/MV/028.png" alt="">
+        <img src="images/MV/029.png" alt="">
+        <img src="images/MV/030.png" alt="">
+        <img src="images/MV/031.png" alt="">
+        <img src="images/MV/032.png" alt="">
+        <img src="images/MV/033.png" alt="">
+        <img src="images/MV/034.png" alt="">
+        <img src="images/MV/035.png" alt="">
+        <img src="images/MV/036.png" alt="">
+        <img src="images/MV/037.png" alt="">
+        <img src="images/MV/038.png" alt="">
+        <img src="images/MV/039.png" alt="">
+        <img src="images/MV/040.png" alt="">
+        <img src="images/MV/041.png" alt="">
+        <img src="images/MV/042.png" alt="">
+        <img src="images/MV/043.png" alt="">
+        <img src="images/MV/044.png" alt="">
+        <img src="images/MV/045.png" alt="">
+        <img src="images/MV/046.png" alt="">
+        <img src="images/MV/047.png" alt="">
+        <img src="images/MV/048.png" alt="">
+        <img src="images/MV/049.png" alt="">
+        <img src="images/MV/050.png" alt="">
+        <img src="images/MV/051.png" alt="">
+        <img src="images/MV/052.png" alt="">
+        <img src="images/MV/053.png" alt="">
+        <img src="images/MV/054.png" alt="">
+        <img src="images/MV/055.png" alt="">
+        <img src="images/MV/056.png" alt="">
+        <img src="images/MV/057.png" alt="">
+        <img src="images/MV/058.png" alt="">
+        <img src="images/MV/059.png" alt="">
+        <img src="images/MV/060.png" alt="">
+        <img src="images/MV/061.png" alt="">
+        <img src="images/MV/062.png" alt="">
+        <img src="images/MV/063.png" alt="">
+        <img src="images/MV/064.png" alt="">
+        <img src="images/MV/065.png" alt="">
+        <img src="images/MV/066.png" alt="">
+        <img src="images/MV/067.png" alt="">
+        <img src="images/MV/068.png" alt="">
+        <img src="images/MV/069.png" alt="">
+        <img src="images/MV/070.png" alt="">
+        <img src="images/MV/071.png" alt="">
+        <img src="images/MV/072.png" alt="">
+        <img src="images/MV/073.png" alt="">
+        <img src="images/MV/074.png" alt="">
+        <img src="images/MV/075.png" alt="">
+        <img src="images/MV/076.png" alt="">
+        <img src="images/MV/077.png" alt="">
+        <img src="images/MV/078.png" alt="">
+        <img src="images/MV/079.png" alt="">
+        <img src="images/MV/080.png" alt="">
+        <img src="images/MV/081.png" alt="">
+        <img src="images/MV/082.png" alt="">
+        <img src="images/MV/083.png" alt="">
+        <img src="images/MV/084.png" alt="">
+        <img src="images/MV/085.png" alt="">
+        <img src="images/MV/086.png" alt="">
+        <img src="images/MV/087.png" alt="">
+        <img src="images/MV/088.png" alt="">
+        <img src="images/MV/089.png" alt="">
+        <img src="images/MV/090.png" alt="">
+        <img src="images/MV/091.png" alt="">
+        <img src="images/MV/092.png" alt="">
+        <img src="images/MV/093.png" alt="">
+        <img src="images/MV/094.png" alt="">
+        <img src="images/MV/095.png" alt="">
+        <img src="images/MV/096.png" alt="">
+        <img src="images/MV/097.png" alt="">
+        <img src="images/MV/098.png" alt="">
+        <img src="images/MV/099.png" alt="">
+        <img src="images/MV/100.png" alt="">
+        <img src="images/MV/101.png" alt="">
+        <img src="images/MV/102.png" alt="">
+        <img src="images/MV/103.png" alt="">
+        <img src="images/MV/104.png" alt="">
+        <img src="images/MV/105.png" alt="">
+        <img src="images/MV/106.png" alt="">
+        <img src="images/MV/107.png" alt="">
+        <img src="images/MV/108.png" alt="">
+        <img src="images/MV/109.png" alt="">
+        <img src="images/MV/110.png" alt="">
+        <img src="images/MV/111.png" alt="">
+        <img src="images/MV/112.png" alt="">
+        <img src="images/MV/113.png" alt="">
+        <img src="images/MV/114.png" alt="">
+        <img src="images/MV/115.png" alt="">
+        <img src="images/MV/116.png" alt="">
+        <img src="images/MV/117.png" alt="">
+        <img src="images/MV/118.png" alt="">
+        <img src="images/MV/119.png" alt="">
+        <img src="images/MV/120.png" alt="">
+        <img src="images/MV/121.png" alt="">
+        <img src="images/MV/122.png" alt="">
+        <img src="images/MV/123.png" alt="">
+        <img src="images/MV/124.png" alt="">
+        <img src="images/MV/125.png" alt="">
+        <img src="images/MV/126.png" alt="">
+        <img src="images/MV/127.png" alt="">
+        <img src="images/MV/128.png" alt="">
+        <img src="images/MV/129.png" alt="">
+        <img src="images/MV/130.png" alt="">
+        <img src="images/MV/131.png" alt="">
+        <img src="images/MV/132.png" alt="">
+        <img src="images/MV/133.png" alt="">
+        <img src="images/MV/134.png" alt="">
+        <img src="images/MV/135.png" alt="">
+        <img src="images/MV/136.png" alt="">
+        <img src="images/MV/137.png" alt="">
+        <img src="images/MV/138.png" alt="">
+        <img src="images/MV/139.png" alt="">
+        <img src="images/MV/140.png" alt="">
+        <img src="images/MV/141.png" alt="">
+        <img src="images/MV/142.png" alt="">
+        <img src="images/MV/143.png" alt="">
+        <img src="images/MV/144.png" alt="">
+        <img src="images/MV/145.png" alt="">
+        <img src="images/MV/146.png" alt="">
+        <img src="images/MV/147.png" alt="">
+        <img src="images/MV/148.png" alt="">
+        <img src="images/MV/149.png" alt="">
+        <img src="images/MV/150.png" alt="">
+        <img src="images/MV/151.png" alt="">
+        <img src="images/MV/152.png" alt="">
+        <img src="images/MV/153.png" alt="">
+        <img src="images/MV/154.png" alt="">
+        <img src="images/MV/155.png" alt="">
+        <img src="images/MV/156.png" alt="">
+        <img src="images/MV/157.png" alt="">
+        <img src="images/MV/158.png" alt="">
+        <img src="images/MV/159.png" alt="">
+        <img src="images/MV/160.png" alt="">
+        <img src="images/MV/161.png" alt="">
+    </div>
+</body>
+
+</html>
